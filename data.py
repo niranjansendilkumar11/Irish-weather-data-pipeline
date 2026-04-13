@@ -77,11 +77,15 @@ def categorise_temperature(temp):
     elif temp < 19: return "Mild"
     else: return "Warm"
 
-def categorise_wind():
-    if speed < 3.0: return "Calm"
-    elif speed < 8.0: return "Breezy"
-    elif speed < 14.0: return "Windy"
-    else: return "Storm"
+def categorise_wind(speed):
+    if speed < 3.0:
+        return "Calm"
+    elif speed < 8.0:
+        return "Breezy"
+    elif speed < 14.0:
+        return "Windy"
+    else:
+        return "Storm"
 
 def categorise_humidity(hum):
     if hum < 40: return "Dry"
