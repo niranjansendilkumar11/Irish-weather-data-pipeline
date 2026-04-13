@@ -46,7 +46,7 @@ def fetch_hourly_data(city):
 
             base_time = datetime.now()
 
-            # 🔁 simulate last 5 hours
+            #simulate last 5 hours
             for i in range(5):
                 records.append({
                     "city": city["city"],
@@ -146,7 +146,7 @@ def transform_weather_data(df):
     df2.drop(columns=["sunrise", "sunset", "visibility"], inplace=True)
     return df2
 
-# ── SQLite DB ───────────────────────────────────────────────────────
+# SQLite DB
 def get_engine():
     return create_engine(f"sqlite:///{DB_FILE}")
 
@@ -231,7 +231,7 @@ def remove_duplicates(engine):
 
     print("Duplicates removed.")
 
-# ── Main ────────────────────────────────────────────────────────────
+# Main
 
 
 
@@ -251,7 +251,7 @@ def run_pipeline():
     create_table(engine)
     load_to_db(df, engine)
 
-    # ✅ Remove duplicates AFTER insert
+    # Remove duplicates AFTER insert
     remove_duplicates(engine)
 
     print(f"[{datetime.now()}] Done. Total rows: {len(df)}")
