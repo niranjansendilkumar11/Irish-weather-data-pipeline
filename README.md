@@ -142,6 +142,11 @@ The following features are generated:
 - time_of_day
 
 ---
+## Data Visualization
+- Implemented Flask-based dashboard for weather data insights directly in google cloud vm
+  
+-Can be extended using Streamlit or advanced dashboards in future
+
 
 ##  Security
 
