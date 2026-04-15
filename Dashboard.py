@@ -40,13 +40,13 @@ def api_conditions():
 
 @app.route("/api/categories")
 def api_categories():
-    temp  = query_db("SELECT temp_category as label, COUNT(*) as count FROM weather_features GROUP BY temp_cate>
-    wind  = query_db("SELECT wind_category as label, COUNT(*) as count FROM weather_features GROUP BY wind_cate>
-    hum   = query_db("SELECT humidity_category as label, COUNT(*) as count FROM weather_features GROUP BY humid>
-    press = query_db("SELECT pressure_category as label, COUNT(*) as count FROM weather_features GROUP BY press>
-    tod   = query_db("SELECT time_of_day as label, COUNT(*) as count FROM weather_features GROUP BY time_of_day>
+    temp  = query_db("SELECT temp_category as label, COUNT(*) as count FROM weather_features GROUP BY temp_category ORDER BY count DESC")
+    wind  = query_db("SELECT wind_category as label, COUNT(*) as count FROM weather_features GROUP BY wind_category ORDER BY count DESC")
+    hum   = query_db("SELECT humidity_category as label, COUNT(*) as count FROM weather_features GROUP BY humidity_category ORDER BY count DESC")
+    press = query_db("SELECT pressure_category as label, COUNT(*) as count FROM weather_features GROUP BY pressure_category ORDER BY count DESC")
+    tod   = query_db("SELECT time_of_day as label, COUNT(*) as count FROM weather_features GROUP BY time_of_day ORDER BY count DESC")
     day   = query_db("SELECT day as label, COUNT(*) as count FROM weather_features GROUP BY day")
-    return jsonify({"temp": temp, "wind": wind, "humidity": hum, "pressure": press, "time_of_day": tod, "day": >
+    return jsonify({"temp": temp, "wind": wind, "humidity": hum, "pressure": press, "time_of_day": tod, "day": day})
 
 @app.route("/api/feelsdiff")
 def api_feelsdiff():
@@ -58,6 +58,23 @@ def api_feelsdiff():
         ORDER BY wf.city
     """)
     return jsonify(rows)
+
+# ── NEW: total rows + per-city row counts ─────────────────────────────────────
+@app.route("/api/totalrows")
+def api_totalrows():
+    total = query_db("SELECT COUNT(*) as total FROM weather_features")
+    per_city = query_db("""
+        SELECT city, COUNT(*) as row_count,
+               MIN(datetime) as first_seen,
+               MAX(datetime) as last_seen
+        FROM weather_features
+        GROUP BY city
+        ORDER BY row_count DESC
+    """)
+    return jsonify({
+        "total": total[0]["total"] if total else 0,
+        "per_city": per_city
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
