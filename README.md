@@ -185,7 +185,7 @@ Unit tests are implemented using Python’s built-in `unittest` module to valida
 ## AI Usage Attribution
 This project was developed with the assistance of AI tools.
 - I used Claude AI to help design and build the Flask web application.
-- The AI assisted in generating boilerplate code, structuring routes, and improving UI layout.
+- The AI assisted in generating code, and improving UI layout.
 - All generated code was reviewed, tested, and modified as needed to fit project requirements.
 ### Transparency
 As part of maintaining transparency, the AI interaction (chat history) used during development is included in this repository.
