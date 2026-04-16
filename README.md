@@ -1,13 +1,13 @@
-##Irish Weather Data Pipeline
+## Irish Weather Data Pipeline
 
-##Overview
+## Overview
 This project is an **end-to-end data pipeline** that collects real-time weather data for major Irish cities, stores it in a database, and performs feature engineering for further analysis and machine learning.
 
 The pipeline follows the **ETL process (Extract → Transform → Load)** and is designed to be modular and scalable.
 
 ---
 
-##Features
+## Features
 
 - Fetch real-time weather data using OpenWeather API  
 - Store raw data in SQLite database (`weather_hourly`)  
@@ -34,9 +34,9 @@ The pipeline follows the **ETL process (Extract → Transform → Load)** and is
 ```
 ---
 
-##Setup Instructions
+## Setup Instructions
 
-###Clone Repository
+### Clone Repository
 git clone https://github.com/your-username/Irish-weather-data-pipeline.git
 
 cd Irish-weather-data-pipeline
@@ -44,7 +44,7 @@ cd Irish-weather-data-pipeline
 
 ---
 
-###Create Virtual Environment (Optional)
+### Create Virtual Environment (Optional)
 
 
 python -m venv venv
@@ -180,7 +180,21 @@ Unit tests are implemented using Python’s built-in `unittest` module to valida
 - Add real hourly API instead of simulation  
 - Deploy pipeline on cloud (GCP/AWS)  
 - Build dashboard using Flask or Streamlit  
-- Add machine learning model for weather prediction  
+- Add machine learning model for weather prediction
+
+## AI Usage Attribution
+This project was developed with the assistance of AI tools.
+- I used Claude AI to help design and build the Flask web application.
+- The AI assisted in generating boilerplate code, structuring routes, and improving UI layout.
+- All generated code was reviewed, tested, and modified as needed to fit project requirements.
+### Transparency
+As part of maintaining transparency, the AI interaction (chat history) used during development is included in this repository.
+Refer to: https://claude.ai/share/b9f78554-1d04-4d4d-bcd3-f3d85d6c8923
+
+I have been working on this project since March 24 across different Git repositories. Initially, I faced some issues, so I migrated the work to a new repository.
+
+I am attaching the previous repository link for reference.
+Refer to: https://github.com/niranjansendilkumar11/Irish-weather-pipeline.git
 
 ---
 
