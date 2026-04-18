@@ -179,7 +179,6 @@ Unit tests are implemented using Python’s built-in `unittest` module to valida
 
 - Add real hourly API instead of simulation  
 - Deploy pipeline on cloud (GCP/AWS)  
-- Build dashboard using Flask or Streamlit  
 - Add machine learning model for weather prediction
 
 ## AI Usage Attribution
